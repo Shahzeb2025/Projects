@@ -15,35 +15,64 @@ Apart from interesting real world applications of bike sharing systems, the char
 
 **Features and Methodology**
 
-Data Loading and Preprocessing: Initial data loading from a CSV file, with conversion of date columns and extraction of relevant time-based features.
+**Data Loading and Preprocessing:** Initial data loading from a CSV file, with conversion of date columns and extraction of relevant time-based features.
+
 **Feature Engineering:**
+
 Creation of is_weekend to identify weekend days.
+
 Extraction of week_of_year to capture weekly patterns.
+
 Generation of lagged features (cnt_lag1) and rolling mean features (cnt_rolling_3) of the bike count to incorporate temporal dependencies.
+
 **Data Cleaning:** 
+
 Irrelevant columns such as instant, dteday, yr, casual, and registered are dropped to streamline the dataset.
+
 **Feature Transformation:**
+
 Numerical features are scaled using MinMaxScaler.
+
 Categorical features are encoded using OneHotEncoder to prepare them for model training.
+
 A ColumnTransformer is utilized for efficient preprocessing of both numerical and categorical features.
+
 **Model Development:**
+
 **Neural Network (Deep Learning):** A sequential Keras model with multiple dense layers and dropout for regularization. The model is trained using the Adam optimizer with Huber loss and incorporates EarlyStopping to prevent overfitting.
+
 **Random Forest Regressor (Machine Learning):** A robust ensemble learning method used as a benchmark and for its strong predictive performance.
+
 **Ensemble Modeling:** A simple ensemble approach is implemented by averaging the predictions from the trained Neural Network and Random Forest models, aiming to combine their strengths and enhance overall performance.
+
 **Model Evaluation:** The models are evaluated using common regression metrics:
+
 R² Score
+
 Mean Absolute Error (MAE)
+
 Technologies Used
+
 Python
+
 Data Manipulation: pandas, numpy
+
 Visualization: matplotlib
+
 **Machine Learning:** scikit-learn (for train_test_split, MinMaxScaler, OneHotEncoder, ColumnTransformer, r2_score, mean_absolute_error, RandomForestRegressor)
+
 **Deep Learning:** Keras, TensorFlow
+
 **Results**
+
 The ensemble model demonstrates strong performance in predicting bike demand.
+
 Neural Network Test MAE: Approximately 692.65
+
 Random Forest Test MAE: Approximately 179.79
+
 Ensemble Test MAE: Approximately 283.47
+
 Ensemble Test R² Score: Approximately 0.957
 
 
